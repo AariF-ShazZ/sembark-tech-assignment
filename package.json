@@ -11,6 +11,7 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
+    "axios": "^1.16.1",
     "got": "^11.8.6",
     "mobx": "^6.15.4",
     "mobx-react-lite": "^4.1.1",
