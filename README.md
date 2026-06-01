@@ -112,3 +112,24 @@ src/
 │   └── index.ts
 ├── App.tsx
 ├── index.tsx
+
+---
+
+## Assumptions & Limitations
+
+- The Platzi API (`https://api.escuelajs.co/api/v1`) does not natively support filtering by multiple categories in a single request. When multiple categories are selected, individual API calls are made per category and results are merged. Single-category selection always uses a direct API call with the `categoryId` query param.
+- `got` v11 is used because it is the last CommonJS-compatible version, which works with CRA without ejecting the webpack config.
+- Product images from the Platzi API are sometimes returned as malformed strings like `["https://..."]`. These are cleaned up before being passed to the `<img>` tag.
+- Cart quantity controls (increase/decrease) are an addition beyond the base requirements, included to improve usability.
+
+---
+
+## API
+
+All data is fetched from the Platzi Fake Store API:  
+Base URL: `https://api.escuelajs.co/api/v1`
+
+Endpoints used:
+- `GET /products` — fetch all products with optional filters
+- `GET /products/:id` — fetch a single product by ID
+- `GET /categories` — fetch all categories for the filter bar
