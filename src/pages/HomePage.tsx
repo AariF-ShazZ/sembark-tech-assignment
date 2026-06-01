@@ -65,7 +65,7 @@ const HomePage: React.FC = () => {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 page-enter">
       <div className="mb-8">
         <h1 className="text-2xl font-semibold text-gray-900">All Products</h1>
-        <p className="text-sm text-gray-400 mt-1">
+        <p className="text-md text-gray-800 mt-1">
           {loading
             ? "Loading…"
             : `${sortedProducts.length} product${sortedProducts.length !== 1 ? "s" : ""}`}
@@ -162,7 +162,7 @@ const HomePage: React.FC = () => {
         <div
           role="list"
           aria-label="Product listing"
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
         >
           {sortedProducts.map((product, i) => (
             <div role="listitem" key={product.id}>
