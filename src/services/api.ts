@@ -10,6 +10,7 @@ export async function fetchCategories(): Promise<Category[]> {
 export async function fetchProducts(
   params: ProductsApiParams = {}
 ): Promise<Product[]> {
+  
   const searchParams: Record<string, string | number> = {};
 
   if (params.categoryId !== undefined) searchParams["categoryId"] = params.categoryId;

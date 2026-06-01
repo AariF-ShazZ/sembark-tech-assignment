@@ -11,11 +11,9 @@ interface CartContextType {
   clearCart: () => void;
 }
 const CartContext = createContext<CartContextType | null>(null);
-
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-
   const [state, dispatch] = useReducer(cartReducer, getInitialState());
   const totalItems = state.cartItems.reduce((sum, index) => sum + index.quantity, 0);
   const totalPrice = state.cartItems.reduce(
