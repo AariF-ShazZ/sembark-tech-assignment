@@ -77,7 +77,7 @@ npm run cypress:run     # headless mode
 - React Router v6 handles all routing
 
 ### Accessibility
-- Semantic HTML elements throughout (`nav`, `main`, `article`, `footer`)
+- Semantic HTML elements throughout (`nav`, `main`, `article`)
 - ARIA roles and labels on interactive elements
 - Keyboard navigable product cards (`tabIndex`, `onKeyDown`)
 - `aria-live` on cart summary in footer
