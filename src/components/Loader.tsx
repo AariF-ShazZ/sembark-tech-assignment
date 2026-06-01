@@ -1,13 +1,16 @@
 import React from "react";
-
-const Loader: React.FC = () => (
+interface LoaderProps {
+  message?: string;
+}
+const Loader: React.FC<LoaderProps> = ({ message = "Loading…" }) => (
   <div
     role="status"
-    aria-label="Loading"
-    className="flex justify-center items-center py-20"
+    aria-label={message}
+    className="flex flex-col items-center justify-center py-24 gap-4"
   >
-    <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-    <span className="sr-only">Loading...</span>
+    <div className="w-9 h-9 rounded-full border-[2.5px] border-gray-200 border-t-blue-600 animate-spin" />
+    <span className="text-sm text-gray-400">{message}</span>
+    <span className="sr-only">{message}</span>
   </div>
 );
 

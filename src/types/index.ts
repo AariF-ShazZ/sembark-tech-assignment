@@ -4,7 +4,6 @@ export interface Category {
   name: string;
   image: string;
 }
-
 export interface Product {
   id: number;
   title: string;
@@ -13,7 +12,6 @@ export interface Product {
   category: Category;
   images: string[];
 }
-
 export interface ProductsApiParams {
   categoryId?: number;
   title?: string;
@@ -22,7 +20,6 @@ export interface ProductsApiParams {
   offset?: number;
   limit?: number;
 }
-
 export interface CartItem {
   product: Product;
   quantity: number;
