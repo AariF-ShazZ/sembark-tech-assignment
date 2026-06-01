@@ -19,7 +19,6 @@ export function getInitialState(): CartState {
 export function cartReducer(state: CartState, action: CartAction): CartState {
   let updatedProducts: CartItem[];
   switch (action.type) {
-
     case "ADD_ITEM": {
       const existsProduct = state.cartItems.find((prod) => prod.product.id === action.payload.id);
       if (existsProduct) {
