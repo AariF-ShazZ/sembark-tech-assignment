@@ -45,7 +45,6 @@ const ProductCard: React.FC<Props> = ({ product, index = 0 }) => {
           <span className="text-base font-semibold text-blue-600">
             ${product.price}
           </span>
-
           <span className="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1.5 rounded-lg group-hover:bg-blue-100 transition-colors">
             View Details →
           </span>

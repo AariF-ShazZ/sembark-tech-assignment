@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+# Meesho — E-Commerce Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fully-featured e-commerce web application built as part of a frontend assignment. Users can browse products, filter by categories, view product details, and manage a shopping cart.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **React.js** — CRA with TypeScript template
+- **TypeScript** — strict mode throughout
+- **React Router v6** — all navigation + `useSearchParams` for URL-based filters
+- **Context API + useReducer** — cart state management
+- **axios** — API data fetching
+- **Tailwind CSS** — styling and mobile responsiveness
+- **Cypress** — E2E testing
+- **localStorage** — cart persistence across sessions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Setup Instructions
 
-### `npm test`
+### 1. Clone the repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/AariF-ShazZ/sembark-tech-assignment.git
+cd sembark-tech-assignment
+git checkout aarif
+```
 
-### `npm run build`
+### 2. Install dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 3. Start the development server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 4. Run E2E tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run cypress:open    # interactive mode
+npm run cypress:run     # headless mode
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Features Implemented
 
-## Learn More
+### Home Page
+- Product grid showing name, price and thumbnail for each product
+- Filters by category — multiple categories can be selected at once
+- Sort by price (low to high / high to low)
+- Filters are URL-based using `useSearchParams` — survive page refresh and back button navigation
+- Shareable links with filters already applied
+- When filters change, data is always re-fetched from the API — never filtered locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Product Detail Page
+- Dynamic routing at `/product/:id/details`
+- Product data fetched from API based on the ID in the URL
+- Displays title, description, price and an "Add to Cart" button
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Cart
+- Add items from the Product Detail Page
+- Remove items or adjust quantity from the Cart Page
+- Total cart value and item count shown in the footer on every page
+- Cart persisted in `localStorage` — survives page refresh
+
+### Navigation
+- Navbar with links to Home and Cart
+- Back button on Product Detail Page to return to Home
+- React Router v6 handles all routing
+
+### Accessibility
+- Semantic HTML elements throughout (`nav`, `main`, `article`, `footer`)
+- ARIA roles and labels on interactive elements
+- Keyboard navigable product cards (`tabIndex`, `onKeyDown`)
+- `aria-live` on cart summary in footer
+
+### Animations (Bonus)
+- Staggered `fadeInUp` animation on product cards
+- Button state transition when item is added to cart
+
+---
+
+## Folder Structure
+
+src/
+├── components/
+│   ├── Navbar.tsx
+│   ├── ProductCard.tsx
+│   ├── CartItem.tsx
+│   └── Loader.tsx
+├── pages/
+│   ├── HomePage.tsx
+│   ├── ProductDetailPage.tsx
+│   └── CartPage.tsx
+├── context/
+│   └── CartContext.tsx
+├── reducer/
+│   └── CartReducer.ts
+├── hooks/
+│   └── useFetchProducts.ts
+├── services/
+│   └── api.ts
+├── types/
+│   └── index.ts
+├── App.tsx
+├── index.tsx
