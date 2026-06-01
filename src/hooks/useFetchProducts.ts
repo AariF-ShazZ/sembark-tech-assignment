@@ -5,7 +5,6 @@ interface UseFetchProductsResult {
   products: Product[];
   loading: boolean;
   error: string | null;
-  refetch: () => void;
 }
 export function useFetchProducts(
   params: ProductsApiParams
@@ -13,7 +12,6 @@ export function useFetchProducts(
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [trigger, setTrigger] = useState(0);
   const paramsKey = JSON.stringify(params);
   useEffect(() => {
     let cancelled = false;
@@ -35,7 +33,6 @@ export function useFetchProducts(
     return () => {
       cancelled = true;
     };
-  }, [paramsKey, trigger]);
-  const refetch = () => setTrigger((t) => t + 1);
-  return { products, loading, error, refetch };
+  }, [paramsKey]);
+  return { products, loading, error };
 }

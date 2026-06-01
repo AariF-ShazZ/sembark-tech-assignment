@@ -35,7 +35,6 @@ const ProductDetailPage: React.FC = () => {
   const hasValidImg = imageUrl.startsWith("http") && !imgError;
 
   if (loading) return <Loader message="Loading product…" />;
-
   if (error)
     return (
       <div
@@ -46,7 +45,6 @@ const ProductDetailPage: React.FC = () => {
         {error}
       </div>
     );
-
   if (!product)
     return (
       <p className="text-center py-20 text-sm text-gray-400">
