@@ -113,7 +113,7 @@ const ProductDetailPage: React.FC = () => {
               ) : (
                 <>
                   <ShoppingCart size={17} aria-hidden="true" />
-                  Add to my cart
+                  Add to cart
                 </>
               )}
             </button>
